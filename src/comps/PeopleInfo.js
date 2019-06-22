@@ -15,7 +15,7 @@ const PeopleInfo = () => {
             document.title = `newestPerson = ${people[people.length - 1].name}`;
             console.log('PeopleInfo, useEffect ran', '\n');
             return () => {
-                console.log('PeopleInfo useEffect unmounted = ', '\n');
+                console.log('PeopleInfo, useEffect, unmounted', '\n');
             };
         },
         [newestPerson]

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from 'react';
+import React, { useState, useContext, useRef, useMemo } from 'react';
 import PeopleContext from '../context/peopleContext';
 
 const Form = () => {
@@ -17,6 +17,17 @@ const Form = () => {
         context.addPerson(person);
         setPerson({ name: '' });
     };
+
+    const printNumberOfPeople = () => {
+        console.warn(`${context.people.length} number of People`);
+    };
+
+    useMemo(
+        () => {
+            printNumberOfPeople();
+        },
+        [context.people]
+    );
 
     return (
         <div
