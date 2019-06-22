@@ -6,7 +6,7 @@ const PeopleInfo = () => {
     const renders = useRef(0);
     console.log('PeopleInfo render count = ', ++renders.current, '\n');
 
-    const { people } = useContext(PeopleContext);
+    const { people, testBoolean } = useContext(PeopleContext);
 
     const newestPerson = people[people.length - 1].name;
 
@@ -31,6 +31,7 @@ const PeopleInfo = () => {
             }}
         >
             <h2>Hello PeopleInfo</h2>
+            {testBoolean ? <p>TRUE</p> : <p>FALSE</p>}
             {people.map((p, i) => {
                 return (
                     <p key={p.name}>
