@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+// comps
+import PeopleInfo from "./comps/PeopleInfo";
+import Form from "./comps/Form";
 
-function App() {
+const App = () => {
+  const [people, setPeople] = useState([{ name: "Lisa" }, { name: "Brian" }]);
+
+  const addPerson = person => {
+    setPeople([...people, person]);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://reactjs.org/docs/hooks-reference.html"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          useContext-useReducer-useMemo
         </a>
       </header>
+      <Form addPerson={addPerson}/>
+      <PeopleInfo
+        peopleData={people}
+        newestPerson={people[people.length - 1].name}
+      />
     </div>
   );
-}
+};
 
 export default App;
