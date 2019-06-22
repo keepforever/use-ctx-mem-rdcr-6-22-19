@@ -1,11 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
+import PeopleContext from '../context/peopleContext';
 // comps
 import PeopleCount from './PeopleCount';
 
-const PeopleInfo = ({ peopleData, newestPerson }) => {
+const blah = [];
+
+const PeopleInfo = () => {
+    const context = useContext(PeopleContext);
+
+    const newestPerson = context.people[context.people.length - 1].name;
+
     useEffect(
         () => {
-            document.title = `newestPerson = ${newestPerson}`;
+            document.title = `newestPerson = ${
+                context.people[context.people.length - 1].name
+            }`;
             console.log('PeopleInfo, useEffect ran', '\n');
             return () => {
                 console.log('PeopleInfo useEffect unmounted = ', '\n');
@@ -22,10 +31,10 @@ const PeopleInfo = ({ peopleData, newestPerson }) => {
             }}
         >
             <h2>Hello PeopleInfo</h2>
-            {peopleData.map((p, index) => {
+            {blah.map((p, index) => {
                 return <p key={p.name}>{p.name}</p>;
             })}
-            <PeopleCount count={peopleData.length} />
+            <PeopleCount />
         </div>
     );
 };

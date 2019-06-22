@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import PeopleContext from '../context/peopleContext';
 
-const Form = props => {
+const Form = () => {
     const [person, setPerson] = useState({ name: '' });
+    const context = useContext(PeopleContext);
 
     const onChange = event => {
         setPerson({ [event.target.name]: event.target.value });
     };
 
     const submitPerson = () => {
-        props.addPerson(person);
+        context.addPerson(person);
         setPerson({ name: '' });
     };
 

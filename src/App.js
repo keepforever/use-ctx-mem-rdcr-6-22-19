@@ -1,15 +1,27 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import './App.css';
 // comps
 import PeopleInfo from './comps/PeopleInfo';
 import Form from './comps/Form';
+// hooks
+import PeopleContext from './context/peopleContext';
+import peopleReducer from './context/peopleReducer';
 
 const App = () => {
-    const [people, setPeople] = useState([{ name: 'Lisa' }, { name: 'Brian' }]);
+    // const [people, setPeople] = useState([{ name: 'Lisa' }, { name: 'Brian' }]);
+
+    const initialState = {
+        people: [{ name: 'Lisa' }, { name: 'Brian' }]
+    };
 
     const addPerson = person => {
-        setPeople([...people, person]);
+        dispatch({
+            type: 'ADD_PERSON',
+            payload: person
+        });
     };
+
+    const [state, dispatch] = useReducer(peopleReducer, initialState);
 
     return (
         <div className="App">
@@ -23,11 +35,15 @@ const App = () => {
                     useContext-useReducer-useMemo
                 </a>
             </header>
-            <Form addPerson={addPerson} />
-            <PeopleInfo
-                peopleData={people}
-                newestPerson={people[people.length - 1].name}
-            />
+            <PeopleContext.Provider
+                value={{
+                    people: state.people,
+                    addPerson
+                }}
+            >
+                <Form />
+                <PeopleInfo />
+            </PeopleContext.Provider>
         </div>
     );
 };
