@@ -12,13 +12,13 @@ const PeopleInfo = () => {
 
     useEffect(
         () => {
-            document.title = `newestPerson = ${people[people.length - 1].name}`;
+            document.title = `newestPerson = ${newestPerson}`;
             console.log('PeopleInfo, useEffect ran', '\n');
             return () => {
                 console.log('PeopleInfo, useEffect, unmounted', '\n');
             };
         },
-        [newestPerson]
+        [people, newestPerson]
     );
 
     return (
@@ -42,4 +42,4 @@ const PeopleInfo = () => {
     );
 };
 
-export default PeopleInfo;
+export default React.memo(PeopleInfo);

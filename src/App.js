@@ -4,6 +4,7 @@ import './App.css';
 import PeopleInfo from './comps/PeopleInfo';
 import Form from './comps/Form';
 import PeopleCount from './comps/PeopleCount';
+import Toggle from './comps/Toggle';
 
 // hooks
 import PeopleContext from './context/peopleContext';
@@ -13,13 +14,20 @@ const App = () => {
     // const [people, setPeople] = useState([{ name: 'Lisa' }, { name: 'Brian' }]);
 
     const initialState = {
-        people: [{ name: 'Lisa' }, { name: 'Brian' }]
+        people: [{ name: 'Lisa' }, { name: 'Brian' }],
+        testBoolean: false
     };
 
     const addPerson = person => {
         dispatch({
             type: 'ADD_PERSON',
             payload: person
+        });
+    };
+
+    const toggleTest = () => {
+        dispatch({
+            type: 'TOGGLE_TEST'
         });
     };
 
@@ -40,12 +48,15 @@ const App = () => {
             <PeopleContext.Provider
                 value={{
                     people: state.people,
-                    addPerson
+                    testBoolean: state.testBoolean,
+                    addPerson,
+                    toggleTest
                 }}
             >
                 <Form />
                 <PeopleInfo />
                 <PeopleCount />
+                <Toggle buttonTitle="Toggle Test"/>
             </PeopleContext.Provider>
         </div>
     );

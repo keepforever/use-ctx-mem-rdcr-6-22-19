@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef, useMemo } from 'react';
+import React, { useState, useContext, useRef, useMemo, useCallback } from 'react';
 import PeopleContext from '../context/peopleContext';
 
 const Form = () => {
@@ -18,13 +18,28 @@ const Form = () => {
         setPerson({ name: '' });
     };
 
-    const printNumberOfPeople = () => {
-        console.warn(`${context.people.length} number of People`);
-    };
+    // this
+
+    // const printNumberOfPeople = useCallback(() => {
+    //     console.log(`${context.people.length} number of People`);
+    // }, [context.people]);
+    //
+    // useMemo(
+    //     () => {
+    //         printNumberOfPeople();
+    //     },
+    //     [printNumberOfPeople]
+    // );
+
+    // or this
+
+    // const printNumberOfPeople = useCallback(() => {
+    //     console.log(`${context.people.length} number of People`);
+    // }, [context.people]);
 
     useMemo(
         () => {
-            printNumberOfPeople();
+            console.log(`${context.people.length} number of People`);
         },
         [context.people]
     );
