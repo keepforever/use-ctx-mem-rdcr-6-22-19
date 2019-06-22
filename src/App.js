@@ -3,6 +3,8 @@ import './App.css';
 // comps
 import PeopleInfo from './comps/PeopleInfo';
 import Form from './comps/Form';
+import PeopleCount from './comps/PeopleCount';
+
 // hooks
 import PeopleContext from './context/peopleContext';
 import peopleReducer from './context/peopleReducer';
@@ -43,6 +45,7 @@ const App = () => {
             >
                 <Form />
                 <PeopleInfo />
+                <PeopleCount />
             </PeopleContext.Provider>
         </div>
     );

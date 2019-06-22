@@ -1,7 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import PeopleContext from '../context/peopleContext';
 
 const Form = () => {
+    const renders = useRef(0);
+    console.log('Form render count = ', ++renders.current, '\n');
+
     const [person, setPerson] = useState({ name: '' });
     const context = useContext(PeopleContext);
 
@@ -10,12 +13,22 @@ const Form = () => {
     };
 
     const submitPerson = () => {
+        if (!person.name.length) return;
         context.addPerson(person);
         setPerson({ name: '' });
     };
 
     return (
-        <div>
+        <div
+            style={{
+                border: '1px solid blue',
+                display: 'flex',
+                flexDirection: 'column',
+                margin: '20px',
+                padding: '10px',
+                alignItems: 'center'
+            }}
+        >
             <p>hello form</p>
             <input
                 type="text"
@@ -23,8 +36,22 @@ const Form = () => {
                 placeholder="Enter name..."
                 value={person.name}
                 onChange={onChange}
+                style={{
+                    height: 30,
+                    width: 300,
+                    fontSize: 20
+                }}
             />
-            <button onClick={submitPerson}>Submit Person</button>
+            <button
+                style={{
+                    height: 70,
+                    width: 300,
+                    fontSize: 20
+                }}
+                onClick={submitPerson}
+            >
+                Submit Person
+            </button>
         </div>
     );
 };
