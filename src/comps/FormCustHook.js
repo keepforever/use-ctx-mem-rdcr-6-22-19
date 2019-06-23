@@ -41,7 +41,9 @@ const Form = () => {
             {values.data && <div style={{
                 border: '2px solid green'
             }}>
-                <h2>
+                <h2 style={{
+                    textDecoration: values.data.completed ? 'line-through' : null
+                }}>
                     {values.data.title}
                 </h2>
             </div>}
