@@ -1,60 +1,50 @@
-import React, { useState, useContext, useRef, useMemo, useCallback } from 'react';
-import {useForm} from '../hooks/useForm'
+import React, { useContext, useRef } from 'react';
+import {useForm} from '../hooks/useFormQuestion';
 import PeopleContext from '../context/peopleContext';
+// styles
+import styles from '../styles';
 
 const Form = () => {
     const renders = useRef(0);
     console.log('Form render count = ', ++renders.current, '\n');
 
-    const nameRef = useRef('');
-    console.log('\n', '\n', `nameRef = `, nameRef, '\n', '\n');
-    console.log('\n', '\n', `nameRef.current.value = `, nameRef.current.value, '\n', '\n');
-
-    const [values, handleChange, clearForm] = useForm({ name: '' });
+    const [values, handleChange, clearForm, getStuff] = useForm({ name: '' });
     const context = useContext(PeopleContext);
 
-    const submitPerson = () => {
+    const submitPerson = async () => {
         console.log('\n', '\n', `values.name = `, values.name, '\n', '\n');
         if (!values.name.length) return;
         context.addPerson({name: values.name});
-        clearForm()
+        clearForm();
+        await getStuff();
     };
 
     return (
         <div
-            style={{
-                border: '1px solid blue',
-                display: 'flex',
-                flexDirection: 'column',
-                margin: '20px',
-                padding: '10px',
-                alignItems: 'center'
-            }}
+            style={styles['style-a']}
         >
             <p>hello form</p>
             <input
                 type="text"
                 name="name"
-                ref={nameRef}
                 placeholder="Enter name..."
-                value={values.name}
+                value={values.name || ''}
                 onChange={handleChange}
-                style={{
-                    height: 30,
-                    width: 300,
-                    fontSize: 20
-                }}
+                style={styles['input']}
             />
             <button
-                style={{
-                    height: 70,
-                    width: 300,
-                    fontSize: 20
-                }}
+                style={styles['input']}
                 onClick={submitPerson}
             >
                 Submit Person
             </button>
+            {values.data && <div style={{
+                border: '2px solid green'
+            }}>
+                <h2>
+                    {values.data.title}
+                </h2>
+            </div>}
         </div>
     );
 };
