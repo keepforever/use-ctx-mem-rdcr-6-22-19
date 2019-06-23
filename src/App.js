@@ -5,6 +5,7 @@ import PeopleInfo from './comps/PeopleInfo';
 import FormCustHook from './comps/FormCustHook';
 import PeopleCount from './comps/PeopleCount';
 import Toggle from './comps/Toggle';
+import Header from './comps/Header'
 // hooks
 import PeopleContext from './context/peopleContext';
 import peopleReducer from './context/peopleReducer';
@@ -34,16 +35,7 @@ const App = () => {
 
     return (
         <div className="App">
-            <header className="App-header">
-                <a
-                    className="App-link"
-                    href="https://reactjs.org/docs/hooks-reference.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    useContext-useReducer-useMemo
-                </a>
-            </header>
+            <Header />
             <PeopleContext.Provider
                 value={{
                     people: state.people,
