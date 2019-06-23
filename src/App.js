@@ -5,7 +5,6 @@ import PeopleInfo from './comps/PeopleInfo';
 import Form from './comps/Form';
 import PeopleCount from './comps/PeopleCount';
 import Toggle from './comps/Toggle';
-
 // hooks
 import PeopleContext from './context/peopleContext';
 import peopleReducer from './context/peopleReducer';
@@ -17,6 +16,8 @@ const App = () => {
         people: [{ name: 'Lisa' }, { name: 'Brian' }],
         testBoolean: false
     };
+
+    const [state, dispatch] = useReducer(peopleReducer, initialState);
 
     const addPerson = person => {
         dispatch({
@@ -30,8 +31,6 @@ const App = () => {
             type: 'TOGGLE_TEST'
         });
     };
-
-    const [state, dispatch] = useReducer(peopleReducer, initialState);
 
     return (
         <div className="App">
@@ -56,7 +55,7 @@ const App = () => {
                 <Form />
                 <PeopleInfo />
                 <PeopleCount />
-                <Toggle buttonTitle="Toggle Test"/>
+                <Toggle buttonTitle="Toggle Test" />
             </PeopleContext.Provider>
         </div>
     );
