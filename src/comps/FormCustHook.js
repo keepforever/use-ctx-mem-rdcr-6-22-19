@@ -43,7 +43,8 @@ const Form = () => {
             {values.data && (
                 <div
                     style={{
-                        border: '2px solid green'
+                        border: '2px solid green',
+                        padding: 30
                     }}
                 >
                     <h2
@@ -53,7 +54,7 @@ const Form = () => {
                                 : null
                         }}
                     >
-                        {values.data.title}
+                        ID: {values.data.id}, | {values.data.title}
                     </h2>
                 </div>
             )}
