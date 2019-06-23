@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import './App.css';
 // comps
 import PeopleInfo from './comps/PeopleInfo';
-import Form from './comps/Form';
+import FormCustHook from './comps/FormCustHook';
 import PeopleCount from './comps/PeopleCount';
 import Toggle from './comps/Toggle';
 // hooks
@@ -52,7 +52,7 @@ const App = () => {
                     toggleTest
                 }}
             >
-                <Form />
+                <FormCustHook />
                 <PeopleInfo />
                 <PeopleCount />
                 <Toggle buttonTitle="Toggle Test" />
