@@ -11,5 +11,12 @@ export default {
         height: 30,
         width: 300,
         fontSize: 20
+    },
+    'flex-row': {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        fontSize: 17
     }
 };
