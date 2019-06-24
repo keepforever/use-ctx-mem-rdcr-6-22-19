@@ -61,6 +61,8 @@ const UseEffectDemo = props => {
         };
     }, [values.name]);
 
+    // ## FOUR ## //
+    // pickup at 7:47 mark
     return (
         <div style={styles['style-a']}>
             <h2>Hello UseEffectDemo</h2>
