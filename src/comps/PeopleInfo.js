@@ -3,8 +3,8 @@ import PeopleContext from '../context/peopleContext';
 // comps
 
 const PeopleInfo = () => {
-    const renders = useRef(0);
-    console.log('PeopleInfo render count = ', ++renders.current, '\n');
+    // const renders = useRef(0);
+    // console.log('PeopleInfo render count = ', ++renders.current, '\n');
 
     const { people, testBoolean } = useContext(PeopleContext);
 

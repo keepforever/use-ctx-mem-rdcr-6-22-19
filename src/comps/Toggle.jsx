@@ -2,8 +2,8 @@ import React, { useContext, useRef } from 'react';
 import PeopleContext from '../context/peopleContext';
 
 const Toggle = ({ buttonTitle }) => {
-    const renders = useRef(0);
-    console.log('Toggle render count = ', ++renders.current, '\n');
+    // const renders = useRef(0);
+    // console.log('Toggle render count = ', ++renders.current, '\n');
 
     const { toggleTest } = useContext(PeopleContext);
 

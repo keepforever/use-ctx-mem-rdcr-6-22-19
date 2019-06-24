@@ -5,8 +5,8 @@ import PeopleContext from '../context/peopleContext';
 import styles from '../styles';
 
 const Form = () => {
-    const renders = useRef(0);
-    console.log('Form render count = ', ++renders.current, '\n');
+    // const renders = useRef(0);
+    // console.log('Form render count = ', ++renders.current, '\n');
 
     const [values, handleChange, clearForm, getStuff] = useForm({ name: '' });
     const context = useContext(PeopleContext);

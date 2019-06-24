@@ -6,6 +6,7 @@ import FormCustHook from './comps/FormCustHook';
 import PeopleCount from './comps/PeopleCount';
 import Toggle from './comps/Toggle';
 import Header from './comps/Header';
+import UseEffectDemo from './comps/UseEffectDemo';
 // hooks
 import PeopleContext from './context/peopleContext';
 import peopleReducer from './context/peopleReducer';
@@ -20,6 +21,9 @@ const App = () => {
     };
 
     const [state, dispatch] = useReducer(peopleReducer, initialState);
+
+    // these functions are replaced by a redux-y action-like abstraction
+    // pulling the potentially voluminous logic into a separate file.
 
     // const addPerson = person => {
     //     dispatch({
@@ -45,6 +49,9 @@ const App = () => {
     return (
         <div className="App">
             <Header />
+            <hr/>
+            <UseEffectDemo />
+            <hr/>
             <PeopleContext.Provider
                 value={{
                     people: state.people,
