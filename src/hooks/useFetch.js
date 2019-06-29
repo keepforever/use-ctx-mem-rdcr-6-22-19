@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export const useFetch = randomTodo => {
-    console.log('\n', '\n', `useFetch ran = `, randomTodo, '\n', '\n');
+    // console.log('\n', '\n', `useFetch ran = `, randomTodo, '\n', '\n');
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(true);
     useEffect(
@@ -11,7 +11,7 @@ export const useFetch = randomTodo => {
             axios
                 .get('https://jsonplaceholder.typicode.com/todos/' + randomTodo)
                 .then(res => {
-                    console.log('\n', '\n', `useFetch, res = `, res, '\n', '\n');
+                    // console.log('\n', '\n', `useFetch, res = `, res, '\n', '\n');
                     setData(res.data);
                     setLoading(false);
                 });
