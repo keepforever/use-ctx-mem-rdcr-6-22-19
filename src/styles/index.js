@@ -10,13 +10,21 @@ export default {
     input: {
         height: 30,
         width: 300,
-        fontSize: 20
+        fontSize: 20,
+        margin: 20
     },
     'flex-row': {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-around',
+        fontSize: 17
+    },
+    'row-left': {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
         fontSize: 17
     }
 };

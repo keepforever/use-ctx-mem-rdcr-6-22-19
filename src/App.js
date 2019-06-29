@@ -8,7 +8,6 @@ import Toggle from './comps/Toggle';
 import Header from './comps/Header';
 import UseEffectDemo from './comps/UseEffectDemo';
 import UseLayoutEffectDemo from './comps/UseLayoutEffectDemo';
-
 // hooks
 import PeopleContext from './context/peopleContext';
 import peopleReducer from './context/peopleReducer';
