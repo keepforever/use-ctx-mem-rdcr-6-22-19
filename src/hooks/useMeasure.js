@@ -1,6 +1,5 @@
 import { useState, useRef, useLayoutEffect } from 'react';
 
-
 // Version ONE
 export const useMeasureOne = (ref, deps) => {
     const [rect, setRect] = useState({});
